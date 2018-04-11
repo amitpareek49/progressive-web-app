@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <link rel="manifest" href="manifest.json">
+  <script type="text/javascript">
+		if (navigator.serviceWorker.controller) {
+		  console.log('[PWA Builder] active service worker found, no need to register')
+		} else {
+		  //Register the ServiceWorker
+		  navigator.serviceWorker.register('serviceWorker.js', {
+			scope: './'
+		  }).then(function(reg) {
+			console.log('Service worker has been registered for scope:'+ reg.scope);
+		  });
+		}
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" preload="true">
+  <script type="text/javascript" src="app.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Roboto;
+      color: #73696b;
+    }
+    
+    .page-content {
+      background-color: #f0f0f0;
+      margin-top: -20px; 
+    }
+    
+    header {
+      background-color: #408800;
+      color: #fff;
+      height: 50px;
+      line-height: 50px;
+      font-weight: bold;
+      font-size: 25px;
+      padding-left: 16px;
+    }
+    
+    .demo-card {
+      height: 230px;
+      background: white;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+      box-shadow: 0 0 10px #ccc;
+      max-width: 80%;
+    }
+    
+    .actions {
+      border-top: 1px solid #ccc;
+      margin-top: 30px;
+      line-height: 58px;
+      font-size: 20px;
+      background-color: #127ebf;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .image-card {
+        float: left;
+        margin-right: 16px;
+        display: block;
+        min-width: 80px;
+        max-width: 200px;
+        overflow: hidden;
+        height: 210px;
+        margin: 5px;
+    }
+    
+    .image {
+          line-height: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-position: center;
+          object-fit: cover;
+          image-rendering: auto;
+    }
+
+    @media only screen and (max-width: 600px) {
+
+    p {
+      width: 90%;
+      margin-left: 10px;
+    }
+    .image-card {
+        float: none;
+        margin-right: 16px;
+        display: block;
+        width: auto;
+        overflow: hidden;
+        height: 210px;
+        margin: 5px;
+        max-width: 95%;
+    }
+
+    .image {
+          float: none;
+        display: block;
+        width: 100%;
+        padding: 5px;
+    }
+
+    .demo-card {
+      height: auto;
+      background: #fff;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+      box-shadow: 0 0 10px #ccc;
+      max-width: 100%;
+    }
+    h4 {
+      width: 90%;
+      margin-left: 10px;
+    }
+    }
+    h2 {
+      padding: 20px;
+      width: 80%;
+    }
+    h4 {
+      width: 80%;
+    }
+
+  </style>
+  <title>Fidelity News Feeds</title>
+</head>
+
+<body>
+  <div>
+    <header>
+      <div>
+        Fidelity News
+      </div>
+    </header>
+    <main class="mdl-layout__content">
+      <div class="page-content">
+        <!-- Your content goes here -->
+        <h2>Today's Headline</h2>
+        <div id="upcoming_matches"></div>
+    </main>
+    </div>
+</body>
+
+</html>
